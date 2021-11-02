@@ -10,6 +10,8 @@ module.exports = (req, res, next) => {
     }
     if (key === API_KEY) {
       next();
+    } else {
+        res.status(400).json({msg:"Invalid key"})
     }
   } catch (error) {
     res.status(401).json({ msg: "Key not valid" });
